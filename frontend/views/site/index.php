@@ -1,7 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var \frontend\controllers\SiteController $carusel */
+/* @var \frontend\controllers\SiteController $carousel */
 $this->title = 'My Yii Application';
 ?>
 <!-- ======= Hero Section ======= -->
@@ -14,9 +14,9 @@ $this->title = 'My Yii Application';
                 echo \yii\bootstrap4\Carousel::widget([
                     'items' => [
                         [
-                            'content' => '<img src="img/slide/slide-1.jpg"  alt="">',
-                            'caption' => '<h2 class="animate__animated animate__fadeInDown"><span>Delicious</span> Restaurant</h2>
-                                            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                            'content' => \yii\helpers\Html::img("{$carousel[0]['image']}"),
+                            'caption' => '<h2 class="animate__animated animate__fadeInDown">'.$carousel[0]["name"].'</h2>
+                                            <p class="animate__animated animate__fadeInUp">'.$carousel[0]["description"].'</p>
                                             <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
                                             <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto mb-5">Book a Table</a>',
                             'options' => [
@@ -24,24 +24,24 @@ $this->title = 'My Yii Application';
                             ]
                         ],
                         [
-                            'content' => '<img src="img/slide/slide-2.jpg"  alt="">',
-                            'caption' => '<h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
-                                           <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                                           <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
-                                           <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto mb-5">Book a Table</a>',
-                            'options' => [
-                                'class' => 'carousel-item'
-                            ],
-                        ],
-                        [
-                            'content' => '<img src="img/slide/slide-3.jpg"  alt="">',
-                            'caption' => '<h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
-                                            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                            'content' => \yii\helpers\Html::img("{$carousel[1]['image']}"),
+                            'caption' => '<h2 class="animate__animated animate__fadeInDown">'.$carousel[1]["name"].'</h2>
+                                            <p class="animate__animated animate__fadeInUp">'.$carousel[1]["description"].'</p>
                                             <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
                                             <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto mb-5">Book a Table</a>',
                             'options' => [
                                 'class' => 'carousel-item'
-                            ],
+                            ]
+                        ],
+                        [
+                            'content' => \yii\helpers\Html::img("{$carousel[2]['image']}"),
+                            'caption' => '<h2 class="animate__animated animate__fadeInDown">'.$carousel[2]["name"].'</h2>
+                                            <p class="animate__animated animate__fadeInUp">'.$carousel[2]["description"].'</p>
+                                            <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
+                                            <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto mb-5">Book a Table</a>',
+                            'options' => [
+                                'class' => 'carousel-item'
+                            ]
                         ],
                     ],
                     'controls' => [
@@ -51,7 +51,6 @@ $this->title = 'My Yii Application';
                         ' <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
                                         <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
                                   </a>'
-
                     ]
 
                 ]);
