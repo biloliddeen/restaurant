@@ -1,16 +1,27 @@
 <?php
-
-/* @var $this yii\web\View */
-
-use yii\helpers\Html;
-
-$this->title = 'About';
-$this->params['breadcrumbs'][] = $this->title;
+/* @var \frontend\controllers\SiteController $about */
 ?>
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="row">
 
-    <p>This is the About page. You may modify the following file to customize its content:</p>
+    <div class="col-lg-5 align-items-stretch video-box" style='background-image: url(<?=$about[0]['image']?>);'>
+        <a href="<?=$about[0]['link']?>" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+    </div>
 
-    <code><?= __FILE__ ?></code>
+    <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
+
+        <div class="content">
+            <h3>
+                <strong>
+                    <?=$about[0]['title']?>
+                </strong>
+            </h3>
+            <p class="fst-italic">
+                <?=$about[0]['description']?>
+            </p>
+
+        </div>
+
+    </div>
+
 </div>
+

@@ -85,6 +85,14 @@ AppAsset::register($this);
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="<?php echo \yii\helpers\Url::to(['about/'])?>" class="nav-link">
+                                <i class="fas fa-about"></i>
+                                <p>
+                                    ABOUT
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?php echo \yii\helpers\Url::to(['carousel/'])?>" class="nav-link">
                                 <i class="fas fa-sliders-h"></i>
                                 <p>

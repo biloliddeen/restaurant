@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\About;
 use common\models\Carousel;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
@@ -77,9 +78,11 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $carousel = Carousel::find()->all();
+        $about = About::find()->all();
 
         return $this->render('index', [
-            'carousel' => $carousel
+            'carousel' => $carousel,
+            'about' => $about
         ]);
     }
 
