@@ -4,6 +4,9 @@ namespace frontend\controllers;
 
 use common\models\About;
 use common\models\Carousel;
+use common\models\Choose;
+use common\models\Food;
+use common\models\Specials;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -79,10 +82,17 @@ class SiteController extends Controller
     {
         $carousel = Carousel::find()->all();
         $about = About::find()->all();
+        $choose = Choose::find()->all();
+        $food = Food::find()->all();
+        $specials = Specials::find()->all();
 
         return $this->render('index', [
             'carousel' => $carousel,
-            'about' => $about
+            'about' => $about,
+            'choose' => $choose,
+            'food' => $food,
+            'specials' => $specials,
+
         ]);
     }
 
