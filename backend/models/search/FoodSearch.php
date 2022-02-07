@@ -17,8 +17,9 @@ class FoodSearch extends Food
     public function rules()
     {
         return [
-            [['id', 'price', 'updated_by'], 'integer'],
+            [['id', 'updated_by'], 'integer'],
             [['name', 'description', 'type', 'created_at'], 'safe'],
+            [['price'], 'number'],
         ];
     }
 

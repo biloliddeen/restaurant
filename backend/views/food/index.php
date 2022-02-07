@@ -37,7 +37,6 @@ $this->params['breadcrumbs'][] = $this->title;
             //'updated_by',
             [
                 'class' => ActionColumn::className(),
-
             ],
         ],
     ]); ?>
