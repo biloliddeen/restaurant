@@ -12,6 +12,10 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'formatter' => [
+            'thousandSeparator' => ',',
+            'currencyCode' => '$'
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
