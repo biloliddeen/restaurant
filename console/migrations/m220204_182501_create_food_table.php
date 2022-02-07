@@ -19,7 +19,7 @@ class m220204_182501_create_food_table extends Migration
             'id' => $this->primaryKey(),
             'name' => $this->string(255)->notNull(),
             'description' => $this->text(),
-            'price' => $this->integer()->notNull(),
+            'price' => $this->decimal(10, 2)->notNull(),
             'type' => $this->string(255)->notNull(),
             'created_at' => $this->dateTime(),
             'updated_by' => $this->integer(),
