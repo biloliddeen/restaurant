@@ -86,7 +86,7 @@ AppAsset::register($this);
                         </li>
                         <li class="nav-item">
                             <a href="<?php echo \yii\helpers\Url::to(['about/'])?>" class="nav-link">
-                                <i class="fas fa-about"></i>
+                                <i class="fas fa-book"></i>
                                 <p>
                                     ABOUT
                                 </p>
@@ -96,7 +96,15 @@ AppAsset::register($this);
                             <a href="<?php echo \yii\helpers\Url::to(['carousel/'])?>" class="nav-link">
                                 <i class="fas fa-sliders-h"></i>
                                 <p>
-                                    CARUSEL
+                                    CAROUSEL
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo \yii\helpers\Url::to(['specials/'])?>" class="nav-link">
+                                <i class="fas fa-box-open"></i>
+                                <p>
+                                   SPECIALS
                                 </p>
                             </a>
                         </li>
@@ -104,7 +112,7 @@ AppAsset::register($this);
                             <a href="<?php echo \yii\helpers\Url::to(['shef/'])?>" class="nav-link">
                                 <i class="fas fa-user-check"></i>
                                 <p>
-                                    SHEFS
+                                    CHEFS
                                 </p>
                             </a>
                         </li>
