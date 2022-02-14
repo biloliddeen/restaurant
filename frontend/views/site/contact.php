@@ -2,44 +2,57 @@
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap4\ActiveForm */
-/* @var $model \frontend\models\ContactForm */
+/* @var $message \frontend\controllers\SiteController */
+/* @var $success \frontend\controllers\SiteController */
 
 use yii\bootstrap4\Html;
 use yii\bootstrap4\ActiveForm;
-use yii\captcha\Captcha;
 
-$this->title = 'Contact';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-    </p>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
+            <?php $form = ActiveForm::begin([
+                    'action' => '/frontend/web/index.php?r=site/',
+                    'options' => [
+                            'class' => 'php-email-form',
+                            'data-pjax' => 1,
+                    ],
+                ])?>
 
-                <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
+              <div class="row">
+                  <div class="col-md-6">
+                      <?= $form->field($message, 'name')->textInput([
+                          'id' => 'name',
+                          'class' => 'form-control',
+                          'autofocus' => true,
+                          'placeholder' => 'Your Name',
 
-                <?= $form->field($model, 'email') ?>
+                      ])?>
+                  </div>
+                  <div class="col-md-6">
+                      <?= $form->field($message, 'email')->textInput([
+                          'id' => 'email',
+                          'class' => 'form-control',
+                          'placeholder' => 'Your Email'
+                      ]) ?>
+                  </div>
+              </div>
 
-                <?= $form->field($model, 'subject') ?>
 
-                <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
-
-                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
+                <?= $form->field($message, 'subject')->textInput([
+                    'id' => 'subject',
+                    'class' => 'form-control',
+                    'placeholder' => 'Subject'
                 ]) ?>
 
-                <div class="form-group">
-                    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                <?= $form->field($message, 'description')->textarea([
+                    'rows' => 6,
+                    'class' => 'form-control',
+                    'placeholder' => 'Message'
+                ]) ?>
+
+                <div class="text-center">
+                    <?= Html::submitButton('Send Message', ['id' => 'submit-contact', 'name' => 'contact-button']) ?>
                 </div>
 
             <?php ActiveForm::end(); ?>
-        </div>
-    </div>
-
-</div>
