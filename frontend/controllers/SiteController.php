@@ -5,8 +5,14 @@ namespace frontend\controllers;
 use common\models\About;
 use common\models\Carousel;
 use common\models\Choose;
+use common\models\Contact;
 use common\models\Food;
+use common\models\Message;
+use common\models\Packages;
+use common\models\Restaurant;
+use common\models\Shef;
 use common\models\Specials;
+use common\models\Testimonial;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -85,6 +91,22 @@ class SiteController extends Controller
         $choose = Choose::find()->all();
         $food = Food::find()->all();
         $specials = Specials::find()->all();
+        $events = Packages::find()->all();
+        $restaurant = Restaurant::find()->all();
+        $chef =  Shef::find()->all();
+        $comment = Testimonial::find()->all();
+        $contact = Contact::find()->all();
+        $message = new Message();
+
+
+        if ($message->load(Yii::$app->request->post()) && $message->validate()) {
+
+            if ($message->save()) {
+
+                return $this->refresh();
+
+            }
+        }
 
         return $this->render('index', [
             'carousel' => $carousel,
@@ -92,8 +114,13 @@ class SiteController extends Controller
             'choose' => $choose,
             'food' => $food,
             'specials' => $specials,
-
-        ]);
+            'events' => $events,
+            'restaurant' => $restaurant,
+            'chef' => $chef,
+            'comment' => $comment,
+            'contact' => $contact,
+            'message' => $message
+         ]);
     }
 
     /**
@@ -149,20 +176,8 @@ class SiteController extends Controller
             return $this->refresh();
         }
 
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
     }
 
-    /**
-     * Displays about page.
-     *
-     * @return mixed
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }
 
     /**
      * Signs user up.
