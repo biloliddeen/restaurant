@@ -120,7 +120,7 @@ AppAsset::register($this);
                             <a href="<?php echo \yii\helpers\Url::to(['contact/'])?>" class="nav-link">
                                 <i class="fas fa-id-card"></i>
                                 <p>
-                                    CONTACT
+                                  OUR CONTACT
                                 </p>
                             </a>
                         </li>
@@ -145,6 +145,14 @@ AppAsset::register($this);
                                 <i class="fas fa-comment-dots"></i>
                                 <p>
                                     TESTIMONIALS
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo \yii\helpers\Url::to(['message/'])?>" class="nav-link">
+                                <i class="fas fa-comment-dots"></i>
+                                <p>
+                                    CLIENT MESSAGE
                                 </p>
                             </a>
                         </li>
