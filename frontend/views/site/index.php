@@ -6,6 +6,13 @@
 /* @var \frontend\controllers\SiteController $choose */
 /* @var \frontend\controllers\SiteController $food */
 /* @var \frontend\controllers\SiteController $specials */
+/* @var \frontend\controllers\SiteController $events */
+/* @var \frontend\controllers\SiteController $restaurant */
+/* @var \frontend\controllers\SiteController $chef */
+/* @var \frontend\controllers\SiteController $comment */
+/* @var \frontend\controllers\SiteController $contact */
+/* @var \frontend\controllers\SiteController $message */
+/* @var \frontend\controllers\SiteController $success */
 $this->title = 'My Yii Application';
 ?>
 <!-- ======= Hero Section ======= -->
@@ -70,7 +77,6 @@ $this->title = 'My Yii Application';
     <section id="about" class="about">
         <div class="container-fluid">
             <?php
-
            echo  $this->render('about', [
              'about' => $about
             ]);
@@ -165,126 +171,11 @@ $this->title = 'My Yii Application';
     <!-- ======= Events Section ======= -->
     <section id="events" class="events">
         <div class="container">
-
-            <div class="section-title">
-                <h2>Organize Your <span>Events</span> in our Restaurant</h2>
-            </div>
-
-            <div class="events-slider swiper">
-                <div class="swiper-wrapper">
-
-                    <div class="swiper-slide">
-                        <div class="row event-item">
-                            <div class="col-lg-6">
-                                <img src="img/event-birthday.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="col-lg-6 pt-4 pt-lg-0 content">
-                                <h3>Birthday Parties</h3>
-                                <div class="price">
-                                    <p><span>$189</span></p>
-                                </div>
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
-                                <ul>
-                                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                    <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                </ul>
-                                <p>
-                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur
-                                </p>
-                            </div>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="row event-item">
-                            <div class="col-lg-6">
-                                <img src="img/event-private.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="col-lg-6 pt-4 pt-lg-0 content">
-                                <h3>Private Parties</h3>
-                                <div class="price">
-                                    <p><span>$290</span></p>
-                                </div>
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
-                                <ul>
-                                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                    <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                </ul>
-                                <p>
-                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur
-                                </p>
-                            </div>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="row event-item">
-                            <div class="col-lg-6">
-                                <img src="img/event-private.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="col-lg-6 pt-4 pt-lg-0 content">
-                                <h3>Private Parties</h3>
-                                <div class="price">
-                                    <p><span>$290</span></p>
-                                </div>
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
-                                <ul>
-                                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                    <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                </ul>
-                                <p>
-                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur
-                                </p>
-                            </div>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="row event-item">
-                            <div class="col-lg-6">
-                                <img src="img/event-custom.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="col-lg-6 pt-4 pt-lg-0 content">
-                                <h3>Custom Parties</h3>
-                                <div class="price">
-                                    <p><span>$99</span></p>
-                                </div>
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
-                                <ul>
-                                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                    <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                </ul>
-                                <p>
-                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur
-                                </p>
-                            </div>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-
+            <?php
+            echo  $this->render('events', [
+                'events' => $events
+            ])
+            ?>
         </div>
     </section><!-- End Events Section -->
 
@@ -349,71 +240,19 @@ $this->title = 'My Yii Application';
             </div>
 
             <div class="row no-gutters">
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item">
-                        <a href="img/gallery/gallery-1.jpg" class="gallery-lightbox">
-                            <img src="img/gallery/gallery-1.jpg" alt="" class="img-fluid">
-                        </a>
+                <?php
+                foreach ($restaurant as $restaurant){
+                  ?>
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="<?=$restaurant['image']?>" class="gallery-lightbox">
+                                <img src="<?=$restaurant['image']?>" alt="<?=$restaurant['name']?>" class="img-fluid">
+                            </a>
+                        </div>
                     </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item">
-                        <a href="img/gallery/gallery-2.jpg" class="gallery-lightbox">
-                            <img src="img/gallery/gallery-2.jpg" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item">
-                        <a href="img/gallery/gallery-3.jpg" class="gallery-lightbox">
-                            <img src="img/gallery/gallery-3.jpg" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item">
-                        <a href="img/gallery/gallery-4.jpg" class="gallery-lightbox">
-                            <img src="img/gallery/gallery-4.jpg" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item">
-                        <a href="img/gallery/gallery-5.jpg" class="gallery-lightbox">
-                            <img src="img/gallery/gallery-5.jpg" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item">
-                        <a href="img/gallery/gallery-6.jpg" class="gallery-lightbox">
-                            <img src="img/gallery/gallery-6.jpg" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item">
-                        <a href="img/gallery/gallery-7.jpg" class="gallery-lightbox">
-                            <img src="img/gallery/gallery-7.jpg" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item">
-                        <a href="assets/img/gallery/gallery-8.jpg" class="gallery-lightbox">
-                            <img src="img/gallery/gallery-8.jpg" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
+                  <?
+                }
+                ?>
             </div>
 
         </div>
@@ -430,53 +269,29 @@ $this->title = 'My Yii Application';
 
             <div class="row">
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="img/chefs/chefs-1.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>Master Chef</span>
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
+                <?php foreach ($chef as $chef) : ?>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="member">
+                            <div class="pic">
+                                <img src="<?=$chef['image']?>" class="img-fluid" alt="">
+                            </div>
+                            <div class="member-info">
+                                <h4>
+                                    <?=$chef['name']?>
+                                </h4>
+                                <span>
+                                    <?=$chef['profession']?>
+                                </span>
+                                <div class="social">
+                                    <a href="<?=$chef['link1']?>"><i class="bi bi-twitter"></i></a>
+                                    <a href="<?=$chef['link2']?>"><i class="bi bi-facebook"></i></a>
+                                    <a href="<?=$chef['link3']?>"><i class="bi bi-instagram"></i></a>
+                                    <a href="<?=$chef['link4']?>"><i class="bi bi-linkedin"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="img/chefs/chefs-2.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>Sarah Jhonson</h4>
-                            <span>Patissier</span>
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="img/chefs/chefs-3.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>William Anderson</h4>
-                            <span>Cook</span>
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach;?>
 
             </div>
 
@@ -489,86 +304,27 @@ $this->title = 'My Yii Application';
 
             <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <img src="img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                            <h3>Saul Goodman</h3>
-                            <h4>Ceo &amp; Founder</h4>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <?php foreach ($comment as $comment):?>
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img src="<?=$comment['image']?>" class="testimonial-img" alt="">
+                                <h3>
+                                    <?=$comment['name']?>
+                                </h3>
+                                <h4>
+                                    <?=$comment['profession']?>
+                                </h4>
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    <?=$comment['description']?>
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
                             </div>
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <img src="img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                            <h3>Sara Wilsson</h3>
-                            <h4>Designer</h4>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <img src="img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                            <h3>Jena Karlis</h3>
-                            <h4>Store Owner</h4>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <img src="img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                            <h3>Matt Brandon</h3>
-                            <h4>Freelancer</h4>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <img src="img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                            <h3>John Larson</h3>
-                            <h4>Entrepreneur</h4>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
+                        </div><!-- End testimonial item -->
+                    <?php endforeach;?>
 
                 </div>
                 <div class="swiper-pagination"></div>
@@ -598,53 +354,39 @@ $this->title = 'My Yii Application';
                     <div class="col-lg-3 col-md-6 info">
                         <i class="bi bi-geo-alt"></i>
                         <h4>Location:</h4>
-                        <p>A108 Adam Street<br>New York, NY 535022</p>
+                        <p><?=$contact[0]['location']?></p>
                     </div>
 
                     <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
                         <i class="bi bi-clock"></i>
                         <h4>Open Hours:</h4>
-                        <p>Monday-Saturday:<br>11:00 AM - 2300 PM</p>
+                        <p>Monday-Saturday:<br><?=$contact[0]['days_hours']?></p>
                     </div>
 
                     <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
                         <i class="bi bi-envelope"></i>
                         <h4>Email:</h4>
-                        <p>info@example.com<br>contact@example.com</p>
+                        <p><?=$contact[0]['email1']?><br><?=$contact[0]['email2']?></p>
                     </div>
 
                     <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
                         <i class="bi bi-phone"></i>
                         <h4>Call:</h4>
-                        <p>+1 5589 55488 51<br>+1 5589 22475 14</p>
+                        <p><?=$contact[0]['call1']?><br><?=$contact[0]['call2']?></p>
                     </div>
                 </div>
             </div>
+            <?php
+            \yii\widgets\Pjax::begin([
+                    'enablePushState' => false
+            ]);
+                echo $this->render('contact',[
+                        'message' => $message
+                ]);
+                \yii\widgets\Pjax::end();
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                <div class="row">
-                    <div class="col-md-6 form-group">
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                    </div>
-                </div>
-                <div class="form-group mt-3">
-                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-                </div>
-                <div class="form-group mt-3">
-                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                </div>
-                <div class="my-3">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
-                </div>
-                <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-
-        </div>
+            ?>
+  </div>
     </section><!-- End Contact Section -->
 
 </main><!-- End #main -->
