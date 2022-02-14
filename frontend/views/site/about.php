@@ -2,12 +2,11 @@
 /* @var \frontend\controllers\SiteController $about */
 ?>
 <div class="row">
-
-    <div class="col-lg-5 align-items-stretch video-box" style='background-image: url(<?=$about[0]['image']?>);'>
+    <div class="col-lg-6 align-items-stretch video-box " style='background-image: url(<?=$about[0]['image']?>);'>
         <a href="<?=$about[0]['link']?>" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
     </div>
 
-    <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
+    <div class="col-lg-6 d-flex flex-column justify-content-center align-items-stretch">
 
         <div class="content">
             <h3>
