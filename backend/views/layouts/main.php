@@ -77,6 +77,14 @@ AppAsset::register($this);
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
+                            <a href="<?php echo \yii\helpers\Url::to(['order/'])?>" class="nav-link">
+                                <i class="fas fa-cart"></i>
+                                <p>
+                                    <h5>ORDER TABLE</h5>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?php echo \yii\helpers\Url::to(['food/'])?>" class="nav-link">
                                 <i class="fas fa-hamburger"></i>
                                 <p>
