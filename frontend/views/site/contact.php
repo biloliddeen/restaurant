@@ -7,12 +7,9 @@
 
 use yii\bootstrap4\Html;
 use yii\bootstrap4\ActiveForm;
-
 ?>
-
-
             <?php $form = ActiveForm::begin([
-                    'action' => '/frontend/web/index.php?r=site/',
+                    'action' => 'http://restaurant/frontend/web/index.php?r=site/',
                     'options' => [
                             'class' => 'php-email-form',
                             'data-pjax' => 1,
