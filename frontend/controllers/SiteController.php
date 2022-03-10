@@ -107,10 +107,6 @@ class SiteController extends Controller
             
             
             if ($order->validate() && $order->save()){
-                echo '<pre>';
-                var_dump($order->date);
-                echo '</pre>';
-                exit;
                 Yii::$app->session->setFlash('success', "Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!");
                 $order = new Order();
             } else {

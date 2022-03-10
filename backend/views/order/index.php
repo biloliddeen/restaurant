@@ -1,9 +1,11 @@
 <?php
 
-use yii\helpers\Html;
+use Yii;
 use yii\helpers\Url;
+use yii\helpers\Html;
+// use kartik\grid\GridView;
+use yii\grid\GridView;
 use yii\grid\ActionColumn;
-// use \kartik\grid\GridView;
 use kartik\export\ExportMenu;
 
 /* @var $this yii\web\View */
@@ -24,35 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 </p>
              
                 <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-                    <?php
-                    $gridColumns = [
-                        ['class' => 'yii\grid\SerialColumn'],
-                        'id',
-                        'name',
-                        'email:email',
-                        'phone',
-                        [
-                            'attribute' => 'date',
-                            'content' => function($data){
-                                return \Yii::$app->formatter->asDate($data->date);
-                            }
-                        ],
-                        'time',
-                        'count',
-                        'message:ntext',
-                        'created_at',
-                        'active',
-                        ['class' => 'yii\grid\ActionColumn'],
-                    ];
-
-                    // Renders a export dropdown menu
-                    echo ExportMenu::widget([
-                        'dataProvider' => $dataProvider,
-                        'columns' => $gridColumns,
-                        'clearBuffers' => true, //optional
-                    ]);
-                    ?>
-                <?=\kartik\grid\GridView::widget([
+                
+                   
+                <?=GridView::widget([
                     'dataProvider' => $dataProvider,
                     'filterModel' => $searchModel,
                     'columns' => [
@@ -83,3 +59,4 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>   
 </div>
+<p></p>
