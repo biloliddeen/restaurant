@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use common\models\Specials;
 use backend\models\search\SpecialsSearch;
+use yii\web\UploadedFile;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -69,13 +70,19 @@ class SpecialsController extends Controller
     {
         $model = new Specials();
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load($this->request->post())) {
+                $model->image = UploadedFile::getInstance($model, 'image');
+
+                if($model->validate() && $model->save())
+                {
+                    $imageName = $model->image->baseName.'.'.$model->image->extension;
+                    $model->image->saveAs(\Yii::getAlias('@specialsImgPath').'/'.$imageName);
+                    $model->image = $imageName;
+                    $model->save();
+                    
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
             }
-        } else {
-            $model->loadDefaultValues();
-        }
 
         return $this->render('create', [
             'model' => $model,
@@ -93,8 +100,18 @@ class SpecialsController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load($this->request->post())) {
+            $model->image = UploadedFile::getInstance($model, 'image');
+
+            if($model->validate() && $model->save())
+            {
+                $imageName = $model->image->baseName.'.'.$model->image->extension;
+                $model->image->saveAs(\Yii::getAlias('@specialsImgPath').'/'.$imageName);
+                $model->image = $imageName;
+                $model->save();
+                
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
 
         return $this->render('update', [

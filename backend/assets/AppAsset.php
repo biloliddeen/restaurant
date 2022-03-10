@@ -17,7 +17,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/adminlte.js',
-        'https://kit.fontawesome.com/7844e01a37.js'
+        'js/fontawesome.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

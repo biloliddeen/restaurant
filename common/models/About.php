@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 
+
 /**
  * This is the model class for table "about".
  *
@@ -15,6 +16,7 @@ use Yii;
  */
 class About extends \yii\db\ActiveRecord
 {
+
     /**
      * {@inheritdoc}
      */
@@ -22,6 +24,7 @@ class About extends \yii\db\ActiveRecord
     {
         return 'about';
     }
+    
 
     /**
      * {@inheritdoc}
@@ -29,9 +32,10 @@ class About extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'image', 'link'], 'required'],
+            [['title', 'link'], 'required'],
             [['description'], 'string'],
-            [['title', 'image', 'link'], 'string', 'max' => 255],
+            [['title', 'link'], 'string', 'max' => 255],
+            [['image'],'file', 'extensions' => 'png, jpg, jpeg, webp', 'maxSize' => 10 * 1024 * 1024],
         ];
     }
 

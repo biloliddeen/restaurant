@@ -30,7 +30,8 @@ class Carousel extends \yii\db\ActiveRecord
         return [
             [['name', 'image'], 'required'],
             [['description'], 'string'],
-            [['name', 'image'], 'string', 'max' => 255],
+            [['name'], 'string', 'max' => 255],
+            [['image'], 'file', 'extensions' => 'jpg, jpeg, png, webp', 'maxSize' => 10 * 1024 * 1024]
         ];
     }
 

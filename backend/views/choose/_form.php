@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
+use mihaildev\ckeditor\CKEditor;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Choose */
@@ -9,17 +10,29 @@ use yii\bootstrap4\ActiveForm;
 ?>
 
 <div class="choose-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-10 m-auto">
 
-    <?php $form = ActiveForm::begin(); ?>
+                <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+                <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+                <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+                <?= $form->field($model, 'content')->widget(CKEditor::className(),[
+                    'editorOptions' => [
+                        'preset' => 'standart', 
+                        'inline' => false, 
+                    ],
+                ]); ?>
+
+                <div class="form-group col-3 p-0">
+                    <?= Html::submitButton('Save', ['class' => 'btn btn-block btn-primary btn-sm']) ?>
+                </div>
+
+                <?php ActiveForm::end(); ?>
+            </div>
+        </div>
     </div>
-
-    <?php ActiveForm::end(); ?>
-
 </div>

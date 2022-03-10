@@ -19,11 +19,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'location') ?>
 
-    <?= $form->field($model, 'days_hours') ?>
+    <?= $form->field($model, 'from_hour') ?>
+
+    <?= $form->field($model, 'to_hour') ?>
 
     <?= $form->field($model, 'email1') ?>
 
-    <?= $form->field($model, 'email2') ?>
+    <?php // echo $form->field($model, 'email2') ?>
 
     <?php // echo $form->field($model, 'call1') ?>
 

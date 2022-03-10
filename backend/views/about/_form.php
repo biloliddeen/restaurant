@@ -11,42 +11,48 @@ use mihaildev\ckeditor\CKEditor;
 ?>
 
 <div class="about-form">
+<div class="container">
+        <div class="row">
+            <div class="col-10 m-auto">
 
-    <?php $form = ActiveForm::begin([
-        'options' => [
-            'enctype' => 'multipart/form-data',
-        ]
-    ]); ?>
+                <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+                <?php $form = ActiveForm::begin([
+                    'options' => [
+                        'enctype' => 'multipart/form-data',
+                    ]
+                ]); ?>
 
-    <?=$form->field($model, 'description')->widget(CKEditor::className(),[
-        'editorOptions' => [
-            'preset' => 'standart', 
-            'inline' => false,
-            'row' => 5
-        ],
-    ]);
-    ?>
+                <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'image', [
-        'template' => '
-            <div class="custom-file">
-                {label}
-                {input}
-                {error}
+                <?=$form->field($model, 'description')->widget(CKEditor::className(),[
+                    'editorOptions' => [
+                        'preset' => 'standart', 
+                        'inline' => false,
+                    ],
+                ]);
+                ?>
+
+                <?= $form->field($model, 'image', [
+                    'template' => '
+                        <label for="customFile">Image</label>
+                        <div class="custom-file">
+                            {label}
+                            {input}
+                            {error}
+                        </div>', 
+                        'inputOptions' => ['class' => 'custom-file-input', 'id' => 'customFile'],
+                        'labelOptions' => ['class' => 'custom-file-label', 'for' => 'customFile']
+                ])->fileInput()?>
+
+                <?= $form->field($model, 'link')->textInput(['maxlength' => true]) ?>
+
+                <div class="form-group col-3 p-0">
+                    <?= Html::submitButton('Save', ['class' => 'btn btn-block btn-primary btn-sm']) ?>
+                </div>
+
+                <?php ActiveForm::end(); ?>
             </div>
-        ', 
-        'inputOptions' => ['class' => 'custom-file-input', 'id' => 'customFile'],
-        'labelOptions' => ['class' => 'custom-file-label', 'for' => 'customFile']
-    ])->fileInput()->label('Image') ?>
-
-    <?= $form->field($model, 'link')->textInput(['maxlength' => true]) ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-primary']) ?>
+        </div>
     </div>
-
-    <?php ActiveForm::end(); ?>
-
 </div>

@@ -57,15 +57,6 @@ class Message extends \yii\db\ActiveRecord
                 ],
             ],
         ];
-//        return [
-//            'class' => TimestampBehavior::class,
-//            'createdAtAttribute' => 'created_at',
-//            'updatedAtAttribute' => false,
-//            'value' => new Expression('NOW()'),
-//
-//
-//        ];
-
     }
 
     /**

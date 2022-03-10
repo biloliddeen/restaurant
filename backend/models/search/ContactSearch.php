@@ -18,7 +18,7 @@ class ContactSearch extends Contact
     {
         return [
             [['id'], 'integer'],
-            [['location', 'days_hours', 'email1', 'email2', 'call1', 'call2', 'link1', 'link2', 'link3', 'link4'], 'safe'],
+            [['location', 'from_hour', 'to_hour', 'email1', 'email2', 'call1', 'call2', 'link1', 'link2', 'link3', 'link4'], 'safe'],
         ];
     }
 
@@ -62,7 +62,8 @@ class ContactSearch extends Contact
         ]);
 
         $query->andFilterWhere(['like', 'location', $this->location])
-            ->andFilterWhere(['like', 'days_hours', $this->days_hours])
+            ->andFilterWhere(['like', 'from_hour', $this->from_hour])
+            ->andFilterWhere(['like', 'to_hour', $this->to_hour])
             ->andFilterWhere(['like', 'email1', $this->email1])
             ->andFilterWhere(['like', 'email2', $this->email2])
             ->andFilterWhere(['like', 'call1', $this->call1])

@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\helpers\StringHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\MessageSearch */
@@ -16,10 +17,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create Message', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
@@ -28,14 +25,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            // 'id',
             'name',
             'email:email',
             'subject',
-            'description:ntext',
+            [
+                'attribute' => 'description',
+                'format' => 'html',
+                'content' => function($data){
+                    return StringHelper::truncateWords($data->description, 20);
+                }
+                
+            ],
             //'created_at',
             [
                 'class' => ActionColumn::className(),
+                'template' => '{view} {delete}'
             ],
         ],
     ]); ?>

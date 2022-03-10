@@ -2,11 +2,13 @@
 
 namespace backend\controllers;
 
-use common\models\Carousel;
-use backend\models\search\CarouselSearch;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
+use yii\web\UploadedFile;
+
+use common\models\Carousel;
 use yii\filters\VerbFilter;
+use yii\web\NotFoundHttpException;
+use backend\models\search\CarouselSearch;
 
 /**
  * CarouselController implements the CRUD actions for Carousel model.
@@ -69,14 +71,18 @@ class CarouselController extends Controller
     {
         $model = new Carousel();
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load($this->request->post()) ) {
+                
+                $model->image = UploadedFile::getInstance($model, 'image');
+               
+                if($model->validate() && $model->save()){
+                    $imageName = $model->image->baseName.'.'.$model->image->extension;
+                    $model->image->saveAs(\Yii::getAlias('@carouselImgPath').'/'.$imageName);
+                    $model->image = $imageName;
+                    $model->save();
+                    return $this->redirect(['view', 'id' => $model->id]); 
+                }
             }
-        } else {
-            $model->loadDefaultValues();
-        }
-
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -93,8 +99,17 @@ class CarouselController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load($this->request->post()) ) {
+                
+            $model->image = UploadedFile::getInstance($model, 'image');
+           
+            if($model->validate() && $model->save()){
+                $imageName = $model->image->baseName.'.'.$model->image->extension;
+                $model->image->saveAs(\Yii::getAlias('@carouselImgPath').'/'.$imageName);
+                $model->image = $imageName;
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->id]); 
+            }
         }
 
         return $this->render('update', [

@@ -1,10 +1,13 @@
 <?php
 
-use yii\helpers\Html;
+// use Yii;
+
 use yii\helpers\Url;
-use yii\grid\ActionColumn;
+use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\grid\ActionColumn;
 use yii\helpers\StringHelper;
+use slavkovrn\lightbox\LightBoxWidget;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\AboutSearch */
@@ -43,9 +46,20 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute' => 'image',
-                'content' => function($data){
-                    return Html::img(Yii::getAlias('@aboutImgUrl').'/'.$data->image, ['width' =>200,]);
-                },
+                'content' => function ($data){
+                    $images = [               
+                        1 => [
+                                'src' => Yii::getAlias('@aboutImgUrl').'/'.$data->image,
+                                'title' => 'About Image',
+                            ],                    
+                    ];
+                    return LightBoxWidget::widget([
+                        'id'     =>'lightbox',  
+                        'class'  =>'galary',    
+                        'width' =>'150px',      
+                        'images' => $images,
+                    ]);
+                }
             ],
             [
                 'class' => ActionColumn::className(),

@@ -3,10 +3,11 @@
 namespace backend\controllers;
 
 use common\models\Shef;
-use backend\models\search\ShefSearch;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
+use yii\web\UploadedFile;
 use yii\filters\VerbFilter;
+use yii\web\NotFoundHttpException;
+use backend\models\search\ShefSearch;
 
 /**
  * ShefController implements the CRUD actions for Shef model.
@@ -69,14 +70,18 @@ class ShefController extends Controller
     {
         $model = new Shef();
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load($this->request->post()) ) {
+                
+            $model->image = UploadedFile::getInstance($model, 'image');
+           
+            if($model->validate() && $model->save()){
+                $imageName = $model->image->baseName.'.'.$model->image->extension;
+                $model->image->saveAs(\Yii::getAlias('@chefsImgPath').'/'.$imageName);
+                $model->image = $imageName;
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->id]); 
             }
-        } else {
-            $model->loadDefaultValues();
         }
-
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -92,11 +97,18 @@ class ShefController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load($this->request->post()) ) {
+                
+            $model->image = UploadedFile::getInstance($model, 'image');
+           
+            if($model->validate() && $model->save()){
+                $imageName = $model->image->baseName.'.'.$model->image->extension;
+                $model->image->saveAs(\Yii::getAlias('@chefsImgPath').'/'.$imageName);
+                $model->image = $imageName;
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->id]); 
+            }
         }
-
         return $this->render('update', [
             'model' => $model,
         ]);
