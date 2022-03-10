@@ -32,7 +32,8 @@ class Packages extends \yii\db\ActiveRecord
             [['name', 'price', 'image'], 'required'],
             [['price'], 'integer'],
             [['description'], 'string'],
-            [['name', 'image'], 'string', 'max' => 255],
+            [['name'], 'string', 'max' => 255],
+            [['image'], 'file', 'extensions' => 'jpg, png, jpeg, webp', 'maxSize' => 10*1024*1024]
         ];
     }
 

@@ -7,6 +7,7 @@ use backend\models\search\PackagesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * PackagesController implements the CRUD actions for Packages model.
@@ -69,14 +70,19 @@ class PackagesController extends Controller
     {
         $model = new Packages();
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
+            if ($model->load($this->request->post())) {
 
+                $model->image = UploadedFile::getInstance($model, 'image');
+                
+                if($model->validate() && $model->save()){
+                    $imageName = $model->image->baseName.'.'.$model->image->extension;
+                    $model->image->saveAs(\Yii::getAlias('@eventImgPath').'/'.$imageName);
+                    $model->image = $imageName;
+                    $model->save();
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
+            }
+   
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -93,9 +99,18 @@ class PackagesController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+        if ($model->load($this->request->post())) {
+
+                $model->image = UploadedFile::getInstance($model, 'image');
+                
+                if($model->validate() && $model->save()){
+                    $imageName = $model->image->baseName.'.'.$model->image->extension;
+                    $model->image->saveAs(\Yii::getAlias('@eventImgPath').'/'.$imageName);
+                    $model->image = $imageName;
+                    $model->save();
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
+            }
 
         return $this->render('update', [
             'model' => $model,

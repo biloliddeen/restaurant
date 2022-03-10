@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Contact', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Contact', ['create'], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -28,12 +28,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            // 'id',
             'location',
-            'days_hours',
+            'from_hour',
+            'to_hour',
             'email1:email',
-            'email2:email',
-            //'call1',
+            //'email2:email',
+            'call1',
             //'call2',
             //'link1',
             //'link2',
@@ -41,7 +42,6 @@ $this->params['breadcrumbs'][] = $this->title;
             //'link4',
             [
                 'class' => ActionColumn::className(),
-
             ],
         ],
     ]); ?>

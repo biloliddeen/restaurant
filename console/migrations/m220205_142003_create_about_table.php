@@ -16,7 +16,7 @@ class m220205_142003_create_about_table extends Migration
             'id' => $this->primaryKey(),
             'title' => $this->string(255)->notNull(),
             'description' => $this->text(),
-            'image' => $this->string(255)->notNull(),
+            'image' => $this->string(255),
             'link' => $this->string(255)->notNull(),
         ]);
     }

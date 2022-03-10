@@ -44,7 +44,7 @@
                             <p class="fst-italic"><?=$specials[0]['content']?></p>
                         </div>
                         <div class="col-lg-4 text-center order-1 order-lg-2">
-                            <img src="<?=$specials[0]['image']?>" alt="" class="img-fluid">
+                            <img src="<?=\Yii::getAlias('@specialsImgUrl').'/'.$specials[0]['image']?>" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                             <p class="fst-italic"><?=$specials[1]['content']?></p>
                         </div>
                         <div class="col-lg-4 text-center order-1 order-lg-2">
-                            <img src="<?=$specials[1]['image']?>" alt="" class="img-fluid">
+                            <img src="<?=\Yii::getAlias('@specialsImgUrl').'/'.$specials[1]['image']?>" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                             <p class="fst-italic"><?=$specials[2]['content']?></p>
                         </div>
                         <div class="col-lg-4 text-center order-1 order-lg-2">
-                            <img src="<?=$specials[2]['image']?>" alt="" class="img-fluid">
+                            <img src="<?=\Yii::getAlias('@specialsImgUrl').'/'.$specials[2]['image']?>" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                             <p class="fst-italic"><?=$specials[3]['content']?></p>
                         </div>
                         <div class="col-lg-4 text-center order-1 order-lg-2">
-                            <img src="<?=$specials[3]['image']?>" alt="" class="img-fluid">
+                            <img src="<?=\Yii::getAlias('@specialsImgUrl').'/'.$specials[3]['image']?>" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                             <p class="fst-italic"><?=$specials[4]['content']?></p>
                         </div>
                         <div class="col-lg-4 text-center order-1 order-lg-2">
-                            <img src="<?=$specials[4]['image']?>" alt="" class="img-fluid">
+                            <img src="<?=\Yii::getAlias('@specialsImgUrl').'/'.$specials[4]['image']?>" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>

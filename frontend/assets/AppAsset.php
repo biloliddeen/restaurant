@@ -20,7 +20,8 @@ class AppAsset extends AssetBundle
         'vendor/glightbox/css/glightbox.min.css',
         'vendor/swiper/swiper-bundle.min.css',
         'img/favicon.png',
-        'img/apple-touch-icon.png'
+        'img/apple-touch-icon.png',
+        'https://use.fontawesome.com/releases/v5.3.1/css/all.css',
     ];
     public $js = [
         'vendor/bootstrap/js/bootstrap.bundle.min.js',

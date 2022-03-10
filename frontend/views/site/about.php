@@ -1,8 +1,9 @@
 <?php
 /* @var \frontend\controllers\SiteController $about */
 ?>
-<div class="row">
-    <div class="col-lg-6 align-items-stretch video-box " style='background-image: url(<?=$about[0]['image']?>);'>
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-lg-6 align-items-stretch video-box" style='background-image: url(<?=Yii::getAlias('@aboutImgUrl').'/'.$about[0]['image']?>);'>
         <a href="<?=$about[0]['link']?>" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
     </div>
 
@@ -22,5 +23,6 @@
 
     </div>
 
+</div>
 </div>
 

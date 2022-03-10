@@ -2,11 +2,13 @@
 
 namespace backend\controllers;
 
-use common\models\About;
-use backend\models\search\AboutSearch;
+use Yii;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
+use common\models\About;
+use yii\web\UploadedFile;
 use yii\filters\VerbFilter;
+use yii\web\NotFoundHttpException;
+use backend\models\search\AboutSearch;
 
 /**
  * AboutController implements the CRUD actions for About model.
@@ -41,6 +43,7 @@ class AboutController extends Controller
         $searchModel = new AboutSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -68,15 +71,20 @@ class AboutController extends Controller
     public function actionCreate()
     {
         $model = new About();
+    
+        if($model->load(Yii::$app->request->post())){
+           
+            $model->image = UploadedFile::getInstance($model, 'image');
+           
+            if($model->validate() && $model->save()){
+                $imageName = $model->image->baseName.'.'.$model->image->extension;
+                $model->image->saveAs(Yii::getAlias("@aboutImgPath").'/'.$imageName);
+                $model->image = $imageName;
+                $model->save();
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['view', 'id' => $model->id]); 
             }
-        } else {
-            $model->loadDefaultValues();
         }
-
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -93,8 +101,18 @@ class AboutController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if($model->load(Yii::$app->request->post())){
+           
+            $model->image = UploadedFile::getInstance($model, 'image');
+           
+            if($model->validate() && $model->save()){
+                $imageName = $model->image->baseName.'.'.$model->image->extension;
+                $model->image->saveAs(Yii::getAlias("@aboutImgPath").'/'.$imageName);
+                $model->image = $imageName;
+                $model->save();
+
+                return $this->redirect(['view', 'id' => $model->id]); 
+            }
         }
 
         return $this->render('update', [

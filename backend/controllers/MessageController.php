@@ -55,53 +55,22 @@ class MessageController extends Controller
      */
     public function actionView($id)
     {
+        // $dateTime = Message::findBySql("SELECT CAST(DATE_FORMAT(FROM_UNIXTIME(message.created_at), '%Y-%m-%d %H:%i:%s') as DATETIME) FROM message")->asArray()->all();
+        $dateTime = Message::findBySql(
+            " SELECT 
+              DATE_FORMAT(FROM_UNIXTIME(message.created_at), '%d-%m-%Y %H:%i:%s') as 'date'
+              FROM message 
+              WHERE id = ".$id)
+              ->asArray()
+              ->all();
+      
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'dateTime' => $dateTime[0]['date']
         ]);
     }
 
-    /**
-     * Creates a new Message model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return string|\yii\web\Response
-     */
-    public function actionCreate()
-    {
-        $model = new Message();
-
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Updates an existing Message model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $id ID
-     * @return string|\yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-    }
-
+    
     /**
      * Deletes an existing Message model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

@@ -70,6 +70,8 @@ class ContactController extends Controller
         $model = new Contact();
 
         if ($this->request->isPost) {
+            $model->load($this->request->post());
+          
             if ($model->load($this->request->post()) && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }

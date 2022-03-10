@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\db\ActiveRecord;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "food".
@@ -26,6 +28,21 @@ class Food extends \yii\db\ActiveRecord
     {
         return 'food';
     }
+    /**
+     * {@inheritdoc}
+     */
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => 'yii\behaviors\TimestampBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => false
+                ]
+            ]
+        ];
+    }
 
     /**
      * {@inheritdoc}
@@ -36,8 +53,7 @@ class Food extends \yii\db\ActiveRecord
             [['name', 'price', 'type'], 'required'],
             [['description'], 'string'],
             [['price'], 'number'],
-            [['created_at'], 'safe'],
-            [['updated_by'], 'integer'],
+            [['updated_by','created_at'], 'integer'],
             [['name', 'type'], 'string', 'max' => 255],
             [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updated_by' => 'id']],
         ];
@@ -67,5 +83,11 @@ class Food extends \yii\db\ActiveRecord
     public function getUpdatedBy()
     {
         return $this->hasOne(User::className(), ['id' => 'updated_by']);
+    }
+    /**
+     * {@inheritdoc}
+     */
+    public static function getType(){
+        return Food::find()->all();
     }
 }

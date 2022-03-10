@@ -9,7 +9,8 @@ use Yii;
  *
  * @property int $id
  * @property string $location
- * @property string $days_hours
+ * @property string $from_hour
+ * @property string $to_hour
  * @property string $email1
  * @property string|null $email2
  * @property string $call1
@@ -35,8 +36,9 @@ class Contact extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['location', 'days_hours', 'email1', 'call1', 'link1'], 'required'],
-            [['location', 'days_hours', 'email1', 'email2', 'call1', 'call2', 'link1', 'link2', 'link3', 'link4'], 'string', 'max' => 255],
+            [['location', 'from_hour', 'to_hour', 'email1', 'call1'], 'required'],
+            [['location', 'email1', 'email2', 'call1', 'call2', 'link1', 'link2', 'link3', 'link4'], 'string', 'max' => 255],
+            [['from_hour', 'to_hour'], 'string', 'max' => 50],
         ];
     }
 
@@ -48,15 +50,19 @@ class Contact extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'location' => 'Location',
-            'days_hours' => 'Days Hours',
-            'email1' => 'Email1',
-            'email2' => 'Email2',
-            'call1' => 'Call1',
-            'call2' => 'Call2',
-            'link1' => 'Link1',
-            'link2' => 'Link2',
-            'link3' => 'Link3',
-            'link4' => 'Link4',
+            'from_hour' => 'Open',
+            'to_hour' => 'Close',
+            'email1' => 'Email 1',
+            'email2' => 'Email 2',
+            'call1' => 'Phone Number 1',
+            'call2' => 'Phone Number 2',
+            'link1' => 'Twitter Link',
+            'link2' => 'Facebook Link',
+            'link3' => 'Instagram Link',
+            'link4' => 'Linkedin Link',
         ];
+    }
+    public static function getContact(){
+        return  Contact::find()->asArray()->all();
     }
 }

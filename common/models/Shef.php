@@ -32,8 +32,9 @@ class Shef extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
-            [['name', 'profession', 'link1', 'link2', 'link3', 'link4', 'image'], 'string', 'max' => 255],
+            [['name', 'profession', 'image'], 'required'],
+            [['name', 'profession', 'link1', 'link2', 'link3', 'link4'], 'string', 'max' => 255],
+            [['image'], 'file', 'extensions' => 'jpg, jpeg, png, webp', 'maxSize' => 10*1024*1024]
         ];
     }
 
@@ -46,10 +47,10 @@ class Shef extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
             'profession' => 'Profession',
-            'link1' => 'Link1',
-            'link2' => 'Link2',
-            'link3' => 'Link3',
-            'link4' => 'Link4',
+            'link1' => 'Twitter Profile Link',
+            'link2' => 'Facebook Profile Link',
+            'link3' => 'Instagram Profile Link',
+            'link4' => 'Linkedin Profile Link',
             'image' => 'Image',
         ];
     }
