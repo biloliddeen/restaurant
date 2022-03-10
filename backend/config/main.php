@@ -16,6 +16,10 @@ return [
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
+        'formatter' => [
+            'thousandSeparator' => ',',
+            'currencyCode' => '$'
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\helpers\StringHelper;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\About */
@@ -31,8 +32,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'title',
-            'description:ntext',
-            'image',
+            [
+                'attribute' => 'image',
+                'format' => 'html',
+                'value' => function($data){
+                    return Html::img(Yii::getAlias('@aboutImgUrl').'/'.$data->image, ['width' =>200,]);
+                },
+                
+            ],
+            [
+                'attribute' => 'description',
+                'format' => 'html',
+            ],
             'link',
         ],
     ]) ?>

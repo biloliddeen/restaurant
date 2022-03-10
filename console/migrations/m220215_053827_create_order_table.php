@@ -18,10 +18,11 @@ class m220215_053827_create_order_table extends Migration
             'email' => $this->string(255)->notNull(),
             'phone' => $this->string(255)->notNull(),
             'date' => $this->dateTime()->notNull(),
-            'time' => $this->dateTime()->notNull(),
+            'time' => $this->string(50)->notNull(),
             'count' => $this->integer(7)->notNull(),
             'message' => $this->text(),
             'created_at' => $this->integer(11),
+            'active' => $this->boolean(),
         ]);
     }
 

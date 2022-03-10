@@ -15,7 +15,8 @@ class m220204_182127_create_contact_table extends Migration
         $this->createTable('{{%contact}}', [
             'id' => $this->primaryKey(),
             'location' => $this->string(255)->notNull(),
-            'days_hours' => $this->string(255)->notNull(),
+            'from_hour' => $this->string(50)->notNull(),
+            'to_hour' => $this->string(50)->notNull(),
             'email1' => $this->string(255)->notNull(),
             'email2' => $this->string(255),
             'call1' => $this->string(255)->notNull(),
