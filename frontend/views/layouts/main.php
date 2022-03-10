@@ -4,11 +4,12 @@
 /* @var $content string */
 /* @var \frontend\controllers\SiteController $contact*/
 
+use yii\bootstrap4\Nav;
+use yii\bootstrap4\Html;
+use common\models\Contact;
+use yii\bootstrap4\NavBar;
 use frontend\assets\AppAsset;
 use yii\bootstrap4\Breadcrumbs;
-use yii\bootstrap4\Html;
-use yii\bootstrap4\Nav;
-use yii\bootstrap4\NavBar;
 
 AppAsset::register($this);
 ?>
@@ -31,8 +32,8 @@ AppAsset::register($this);
     <!-- ======= Top Bar ======= -->
     <section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
-            <i class="bi bi-phone d-flex align-items-center mr-3"><span>+1 5589 55488 55 </span></i>
-            <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span> Mon-Sat: 11:00 AM - 23:00 PM</span></i>
+            <i class="bi bi-phone d-flex align-items-center mr-3"><span><?=Contact::getContact()[0]['call1']?></span></i>
+            <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span> Mon-Sat: <?=Contact::getContact()[0]['from_hour']?> - <?=Contact::getContact()[0]['to_hour']?></span></i>
         </div>
     </section>
 
@@ -41,7 +42,7 @@ AppAsset::register($this);
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
             <div class="logo me-auto">
-                <h1><a href="index.html">Delicious</a></h1>
+                <h1><a href="<?=\Yii::$app->homeUrl?>">Delicious</a></h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
@@ -72,11 +73,12 @@ AppAsset::register($this);
         <div class="container">
             <h3>Delicious</h3>
             <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+          
             <div class="social-links">
-                <a href="<?=$contact[0]['link1']?>" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="<?=$contact[0]['link2']?>" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="<?=$contact[0]['link3']?>" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="<?=$contact[0]['link4']?>" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a href="<?=Contact::getContact()[0]['link1']?>" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="<?=Contact::getContact()[0]['link2']?>" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="<?=Contact::getContact()[0]['link3']?>" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="<?=Contact::getContact()[0]['link4']?>" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
             <div class="copyright">
                 &copy; Copyright <strong><span>Delicious</span></strong>. All Rights Reserved

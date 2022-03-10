@@ -10,7 +10,7 @@
         <div class="swiper-slide">
             <div class="row event-item">
                 <div class="col-lg-6">
-                    <img src="<?=$events[0]['image']?>" class="img-fluid" alt="">
+                    <img src="<?=\Yii::getAlias('@eventImgUrl').'/'.$events[0]['image']?>" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
                     <h3><?=$events[0]['name']?></h3>
@@ -27,7 +27,7 @@
         <div class="swiper-slide">
             <div class="row event-item">
                 <div class="col-lg-6">
-                    <img src="<?=$events[1]['image']?>" class="img-fluid" alt="">
+                    <img src="<?=\Yii::getAlias('@eventImgUrl').'/'.$events[1]['image']?>" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
                     <h3><?=$events[1]['name']?></h3>
@@ -44,7 +44,7 @@
         <div class="swiper-slide">
             <div class="row event-item">
                 <div class="col-lg-6">
-                    <img src="<?=$events[2]['image']?>" class="img-fluid" alt="">
+                    <img src="<?=\Yii::getAlias('@eventImgUrl').'/'.$events[2]['image']?>" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
                     <h3><?=$events[2]['name']?></h3>
@@ -61,7 +61,7 @@
         <div class="swiper-slide">
             <div class="row event-item">
                 <div class="col-lg-6">
-                    <img src="<?=$events[3]['image']?>" class="img-fluid" alt="">
+                    <img src="<?=\Yii::getAlias('@eventImgUrl').'/'.$events[3]['image']?>" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
                     <h3><?=$events[3]['name']?></h3>

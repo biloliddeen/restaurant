@@ -2,30 +2,33 @@
 
 namespace frontend\controllers;
 
+use Yii;
+use common\models\Food;
+use common\models\Shef;
+use yii\web\Controller;
 use common\models\About;
-use common\models\Carousel;
+use common\models\Order;
 use common\models\Choose;
 use common\models\Contact;
-use common\models\Food;
 use common\models\Message;
+use common\models\Carousel;
 use common\models\Packages;
-use common\models\Restaurant;
-use common\models\Shef;
 use common\models\Specials;
-use common\models\Testimonial;
-use frontend\models\ResendVerificationEmailForm;
-use frontend\models\VerifyEmailForm;
-use Yii;
-use yii\base\InvalidArgumentException;
-use yii\web\BadRequestHttpException;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
+use common\models\Restaurant;
+use common\models\Testimonial;
+use Error;
+use yii\filters\AccessControl;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\web\ForbiddenHttpException;
+use frontend\models\VerifyEmailForm;
+use yii\web\BadRequestHttpException;
+use frontend\models\ResetPasswordForm;
+use yii\base\InvalidArgumentException;
+use frontend\models\PasswordResetRequestForm;
+use frontend\models\ResendVerificationEmailForm;
 
 /**
  * Site controller
@@ -97,12 +100,30 @@ class SiteController extends Controller
         $comment = Testimonial::find()->all();
         $contact = Contact::find()->all();
         $message = new Message();
+        $order = new Order();
 
+       
+        if ($order->load(Yii::$app->request->post())) {
+            
+            
+            if ($order->validate() && $order->save()){
+                echo '<pre>';
+                var_dump($order->date);
+                echo '</pre>';
+                exit;
+                Yii::$app->session->setFlash('success', "Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!");
+                $order = new Order();
+            } else {
+                Yii::$app->session->setFlash('error', "Your reservation request has not been sent");
 
-        if ($message->load(Yii::$app->request->post()) && $message->validate() && $message->save()) {
-
-                return $this->refresh();
-
+            }
+        }
+        if ($message->load(Yii::$app->request->post())) {
+            if ($message->validate() && $message->save()){
+               
+                \Yii::$app->session->setFlash('success', 'A message has been sent!');
+                $message = new Message();
+            }
         }
 
         return $this->render('index', [
@@ -116,7 +137,8 @@ class SiteController extends Controller
             'chef' => $chef,
             'comment' => $comment,
             'contact' => $contact,
-            'message' => $message
+            'message' => $message,
+            'order' => $order,
          ]);
     }
 
@@ -163,8 +185,6 @@ class SiteController extends Controller
     public function actionContact()
     {
 
-
-
 //        $model = new ContactForm();
 //        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
 //            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
@@ -177,7 +197,6 @@ class SiteController extends Controller
 //        }
 
     }
-
 
     /**
      * Signs user up.
